@@ -10,12 +10,43 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
-
+    
+    // base view controller
+    var baseViewController: UIViewController?
+    
+    // splash view controller
+    var splashViewController: SplashViewController?
+    
+    // launch view controller, use for app goes to background
+    var launchViewController: UIViewController?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        
+        // set the app to always accept cookie storage
+        HTTPCookieStorage.shared.cookieAcceptPolicy = .always
+        
+        // create session/sessionHandler with timer = 15 minutes
+        
+        // Set up adobe tracker
+        
+        
+        // base view controller is a container of view controllers
+        baseViewController = UIViewController()
+        splashViewController = SplashViewController()
+        addToBaseViewControllers(splashViewController!)
+        
+        // Start App
+        startApp()
+        
+        
+        window = UIWindow()
+        window!.rootViewController = baseViewController!
+        window!.makeKeyAndVisible()
+        
         return true
     }
 
@@ -26,11 +57,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        
+        
+        // Clears the clip board
+        UIPasteboard.general.items = []
+        
+        // Pause animation of splash view controller
+        if splashViewController != nil {
+            splashViewController!.stopAnimating()
+        }
+        
+        // Put up a blocker view to hide any possible sensitive information
+        launchViewController = UIStoryboard.init(name: "LaunchScreen", bundle: Bundle.main).instantiateInitialViewController()
+        addToBaseViewControllers(launchViewController!)
+        
+        
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+        
+        // remove launch view controller
+        if launchViewController != nil {
+            removeFromBaseViewController(launchViewController!)
+            launchViewController = nil
+        }
+        
+        // resume animation of splash view controller
+        if splashViewController != nil {
+            splashViewController!.startAnimating()
+        } else {
+            splashViewController = SplashViewController()
+            addToBaseViewControllers(splashViewController!)
+        }
+        
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
@@ -40,7 +100,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
+    
+    func startApp() {
+        // TEST For Now
+        self.splashViewController?.stopAnimating()
+        
+        // #1  The basics  -- tukasz mroz
+//        let cityViewController = SearchCityViewController()
+//        addToBaseViewControllers(cityViewController)
+        
+        // #2  Observable and the bind
+        let obBindViewController = ObservableBindingViewController()
+        addToBaseViewControllers(obBindViewController)
+        
+        
+    }
+    
+    
+    
+    
+    // MARK: App functions
+    func addToBaseViewControllers(_ childViewController: UIViewController) {
+        baseViewController!.addChildViewController(childViewController)
+        baseViewController!.view.addSubview(childViewController.view)
+        childViewController.didMove(toParentViewController: baseViewController!)
+    }
+    
+    func removeFromBaseViewController(_ childViewController: UIViewController) {
+        childViewController.willMove(toParentViewController: nil)
+        childViewController.view.removeFromSuperview()
+        childViewController.removeFromParentViewController()
+    }
 
 }
 
