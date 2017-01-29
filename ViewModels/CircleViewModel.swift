@@ -18,21 +18,20 @@ class CircleViewModel {
     // Create one variable, will save data to it and get data from it
     var centerVariable = Variable<CGPoint?>(CGPoint.zero)
     // Create observable that will change the background color
-    var backgroundColorObservable: Observable<UIColor>?
+    var backgroundColorObservable: Observable<UIColor>
     
     init() {
-        setup()
-    }
-    
-    func setup() {
-        // When we get new center position, emit new background color
         backgroundColorObservable = centerVariable.asObservable()
-            .map { newCenter in
-                guard let center = newCenter else {
-                    return UIColor.flatten(.black)()
-                }
+            .map { center in
+                guard let center = center else { return UIColor.flatten(.black)() }
                 
-            }
+                let red: CGFloat = ((center.x + center.y).truncatingRemainder(dividingBy: 255.0)) / 255.0 // We just manipulate red, but you can do w/e
+                let green: CGFloat = 0.0
+                let blue: CGFloat = 0.0
+                
+                return UIColor.flatten(UIColor(red: red, green: green, blue: blue, alpha: 1.0))()
+        }
     }
     
+
 }

@@ -33,7 +33,7 @@ class SearchCityViewController: WZViewController, UISearchBarDelegate, UITableVi
             .distinctUntilChanged() // check if the new value is the same as old
             .filter{ !$0.isEmpty }    // filter for non-empty query
             .subscribe(onNext: {
-                query in
+               [unowned self] query in
                     self.shownCities = self.allCities.filter {$0.hasPrefix(query)}
                     self.tableView?.reloadData()
             }).addDisposableTo(disposeBag)
