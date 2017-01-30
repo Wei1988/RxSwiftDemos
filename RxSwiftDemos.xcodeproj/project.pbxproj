@@ -17,6 +17,7 @@
 		BF3588241E3559BE00CC6CF0 /* SearchCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3588231E3559BE00CC6CF0 /* SearchCityViewController.swift */; };
 		BF3588261E36EE3500CC6CF0 /* ObservableBindingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3588251E36EE3500CC6CF0 /* ObservableBindingViewController.swift */; };
 		BF3588291E3703DD00CC6CF0 /* CircleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3588281E3703DD00CC6CF0 /* CircleViewModel.swift */; };
+		BF35882B1E3E975B00CC6CF0 /* SearchCityIIVViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF35882A1E3E975B00CC6CF0 /* SearchCityIIVViewController.swift */; };
 		BFF56E1F1E12282100ACB0D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF56E1E1E12282100ACB0D4 /* AppDelegate.swift */; };
 		BFF56E241E12282100ACB0D4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFF56E221E12282100ACB0D4 /* Main.storyboard */; };
 		BFF56E261E12282100ACB0D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFF56E251E12282100ACB0D4 /* Assets.xcassets */; };
@@ -58,6 +59,7 @@
 		BF3588231E3559BE00CC6CF0 /* SearchCityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCityViewController.swift; sourceTree = "<group>"; };
 		BF3588251E36EE3500CC6CF0 /* ObservableBindingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservableBindingViewController.swift; sourceTree = "<group>"; };
 		BF3588281E3703DD00CC6CF0 /* CircleViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleViewModel.swift; sourceTree = "<group>"; };
+		BF35882A1E3E975B00CC6CF0 /* SearchCityIIVViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCityIIVViewController.swift; sourceTree = "<group>"; };
 		BFF56E1B1E12282100ACB0D4 /* RxSwiftDemos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxSwiftDemos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFF56E1E1E12282100ACB0D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BFF56E231E12282100ACB0D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				BF35881F1E3441E900CC6CF0 /* WZViewController.swift */,
 				BF3588211E34430800CC6CF0 /* SplashViewController.swift */,
 				BF3588231E3559BE00CC6CF0 /* SearchCityViewController.swift */,
+				BF35882A1E3E975B00CC6CF0 /* SearchCityIIVViewController.swift */,
 				BF3588251E36EE3500CC6CF0 /* ObservableBindingViewController.swift */,
 			);
 			path = ViewControllers;
@@ -403,6 +406,7 @@
 				BFF56E1F1E12282100ACB0D4 /* AppDelegate.swift in Sources */,
 				BF35880D1E14C10D00CC6CF0 /* ObservableAndCancelViewController.swift in Sources */,
 				BF3588221E34430800CC6CF0 /* SplashViewController.swift in Sources */,
+				BF35882B1E3E975B00CC6CF0 /* SearchCityIIVViewController.swift in Sources */,
 				BF3588201E3441E900CC6CF0 /* WZViewController.swift in Sources */,
 				BF3588241E3559BE00CC6CF0 /* SearchCityViewController.swift in Sources */,
 				BF3588291E3703DD00CC6CF0 /* CircleViewModel.swift in Sources */,

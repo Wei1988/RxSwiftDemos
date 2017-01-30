@@ -109,6 +109,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        let cityViewController = SearchCityViewController()
 //        addToBaseViewControllers(cityViewController)
         
+//        let cityViewControllerII = SearchCityIIVViewController()
+//        addToBaseViewControllers(cityViewControllerII)
+        
         // #2  Observable and the bind
         let obBindViewController = ObservableBindingViewController()
         addToBaseViewControllers(obBindViewController)

@@ -48,21 +48,19 @@ class ObservableBindingViewController: WZViewController {
         self.circleViewModel = CircleViewModel()
         
         let disposeBag = DisposeBag()
+        
+
         // Bind the center of circleView to centerVariable
         // Note: variable always be used as data source
-        
-//        self.circleView
-//            .rx.observe(CGPoint.self, "center")
-//            .subscribe(onNext: {
-//                 newCenter in
-//                    print("\(newCenter?.x) - \(newCenter?.y)")
-//            }).addDisposableTo(disposeBag)
+    
         
         
         self.circleView
             .rx.observe(CGPoint.self, "center")
             .bindTo(circleViewModel.centerVariable)
             .addDisposableTo(disposeBag)
+        
+        
 //
 //        
 // Subscribe to backgroundObservable to get new colors from the ViewModel.
@@ -84,7 +82,7 @@ class ObservableBindingViewController: WZViewController {
     func circleMoved(_ recognizer: UIPanGestureRecognizer) {
         let location = recognizer.location(in: self.view)
         UIView.animate(withDuration: 0.1) { 
-            self.circleView!.center = location
+            self.circleView.center = location
         }
     }
     
